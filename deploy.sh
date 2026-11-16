@@ -5,6 +5,7 @@ set -e
 export PATH="$HOME/.local/node/bin:$PATH"
 npx vite build --base /rally/ --outDir dist
 cd dist
+rm -rf .git
 touch .nojekyll
 git init -q -b gh-pages
 git add -A
