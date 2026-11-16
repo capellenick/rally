@@ -1,0 +1,195 @@
+.filterButton {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  transition: transform 0.2s var(--spring), filter 0.2s;
+}
+
+.filterButton:active {
+  transform: scale(0.9);
+}
+
+.filterButton[aria-pressed='false'] {
+  filter: brightness(0.75);
+}
+
+/* ── Large title: "Boone > / Open Events" two-tone heading from Figma ── */
+/* The sort pill sits beside the short "Boone ›" line only, so the
+   subtitle can use the full width on smaller phones. */
+.titleRow {
+  position: relative;
+  margin: 22px var(--gutter) 0 calc(var(--gutter) + 4px);
+}
+
+.titleRow .sort {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.largeTitle {
+  margin: 0;
+  font: var(--t-large-title);
+  letter-spacing: 0.01em;
+}
+
+.city {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--tap);
+  margin: -2px 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.city img {
+  width: 15px;
+  height: auto;
+  transform: rotate(-90deg);
+}
+
+.city:active {
+  opacity: 0.6;
+}
+
+.subtitle {
+  display: block;
+  color: var(--label-3);
+  white-space: nowrap;
+}
+
+/* sort pill (1:441) */
+.sort {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  margin-top: 7px;
+  padding: 0 12px 0 10px;
+  border-radius: var(--r-pill);
+  color: var(--label-2);
+  font: var(--t-callout);
+  position: relative;
+}
+
+/* extend the hit target to 44pt without changing the visual pill */
+.sort::after {
+  content: '';
+  position: absolute;
+  inset: -7px -4px;
+}
+
+.sort img {
+  width: 13px;
+  height: auto;
+}
+
+.sort:active {
+  opacity: 0.6;
+}
+
+/* ── Filter chips: one rail, colour-coded by facet like the onboarding chips ── */
+.filters {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s var(--ease-out), opacity 0.25s;
+  opacity: 0;
+}
+
+.filters[data-open] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.filters > * {
+  overflow: hidden;
+}
+
+.chipRail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px var(--gutter) 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-padding: var(--gutter);
+}
+
+.chipRail::-webkit-scrollbar {
+  display: none;
+}
+
+.chipSlot {
+  display: contents;
+}
+
+.rule {
+  flex: none;
+  width: 1px;
+  height: 22px;
+  margin: 0 4px;
+  border-radius: 1px;
+  background: var(--rule);
+}
+
+.count {
+  margin: 14px calc(var(--gutter) + 4px) 0;
+  color: var(--label-3);
+  font: var(--t-footnote);
+}
+
+/* ── Sections ── */
+.section {
+  margin-top: 22px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 calc(var(--gutter) + 4px) 10px;
+  font: var(--t-title3);
+}
+
+.sectionTitle span {
+  color: var(--label-3);
+  font: var(--t-subhead);
+}
+
+.stack {
+  display: grid;
+  gap: var(--stack);
+  margin: 0 var(--gutter);
+}
+
+/* ── Empty state ── */
+.empty {
+  margin: 40px var(--gutter) 0;
+  padding: 28px 22px;
+  border-radius: var(--r-card);
+  background: var(--bg-elevated);
+  text-align: center;
+}
+
+.emptyTitle {
+  margin: 0 0 6px;
+  font: var(--t-headline);
+}
+
+.emptyBody {
+  margin: 0 0 18px;
+  color: var(--label-3);
+  font: var(--t-subhead);
+}
+
+.emptyAction {
+  height: var(--tap);
+  padding: 0 20px;
+  border-radius: var(--r-pill);
+  font: var(--t-headline);
+}

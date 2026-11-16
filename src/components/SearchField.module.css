@@ -1,0 +1,59 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 var(--gutter);
+  padding: 4px 16px 4px 14px;
+  height: 53px;
+  border-radius: 40px;
+}
+
+.row[data-trailing] {
+  padding-right: 4px;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  height: 100%;
+  cursor: text;
+}
+
+.glyph {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+}
+
+/* drawn on its side in Figma and rotated −90° on the canvas */
+.glyph img {
+  width: 26px;
+  height: auto;
+  transform: rotate(-90deg);
+  opacity: 0.75;
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: none;
+  color: var(--label);
+  font: var(--t-body);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field input::placeholder {
+  color: var(--label-3);
+}
+
+.field input::-webkit-search-cancel-button {
+  filter: invert(0.7);
+}

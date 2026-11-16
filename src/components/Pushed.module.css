@@ -1,0 +1,52 @@
+.pushed {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  background: var(--bg);
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.5);
+  animation: push 0.42s var(--ease-out) both;
+}
+
+.pushed[data-leaving] {
+  animation: pop 0.28s var(--ease-out) both;
+}
+
+@keyframes push {
+  from { transform: translateX(100%); }
+}
+
+@keyframes pop {
+  to { transform: translateX(100%); }
+}
+
+/* 44pt glass circles; the Figma glyph sits inside */
+.circle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: 50%;
+  transition: transform 0.2s var(--spring);
+}
+
+.circle:active {
+  transform: scale(0.9);
+}
+
+.circle img {
+  width: 38px;
+  height: 38px;
+}
+
+.dots {
+  display: flex;
+  gap: 3px;
+}
+
+.dots i {
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: var(--label);
+}

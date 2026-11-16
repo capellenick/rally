@@ -1,0 +1,152 @@
+/* Phone: full-bleed, the device chrome disappears */
+.desk,
+.scaler,
+.device,
+.screen {
+  position: relative;
+  height: 100%;
+}
+
+.screen {
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.status,
+.island,
+.home,
+.action,
+.volUp,
+.volDown,
+.side,
+.camera {
+  display: none;
+}
+
+/*
+ * Anything wider than a phone: an iPhone 17 Pro mockup.
+ *   display  402 × 874pt, 62pt corner radius
+ *   bezel    ~9pt black glass border + 3pt aluminium band
+ *   Dynamic Island 125 × 37pt, 11pt from the top
+ */
+@media (min-width: 500px) {
+  .desk {
+    display: grid;
+    place-items: center;
+    min-height: 100%;
+    overflow: hidden;
+    background:
+      radial-gradient(60% 50% at 50% 42%, rgba(195, 238, 37, 0.06), transparent 70%),
+      #0e0e0e;
+  }
+
+  /* Takes up exactly the scaled footprint so the grid centres it correctly */
+  .scaler {
+    width: calc(426px * var(--scale, 1));
+    height: calc(898px * var(--scale, 1));
+  }
+
+  .device {
+    width: 426px;
+    height: 898px;
+    padding: 12px;
+    border-radius: 74px;
+    transform: scale(var(--scale, 1));
+    transform-origin: top left;
+    /* black glass bezel inside a brushed aluminium band */
+    background: #050505;
+    box-shadow:
+      inset 0 0 0 3px #2e2f33,
+      inset 0 0 0 3.5px #5a5c62,
+      inset 0 0 0 5px #1b1c1f,
+      0 0 0 1px #3d3f44,
+      0 50px 100px -20px rgba(0, 0, 0, 0.75),
+      0 30px 60px -30px rgba(0, 0, 0, 0.6);
+  }
+
+  .screen {
+    --safe-top: 62px;
+    --safe-bottom: 34px;
+    width: 402px;
+    height: 874px;
+    border-radius: 62px;
+    /* keeps rounded clipping intact under the scale transform */
+    isolation: isolate;
+  }
+
+  /* Hardware buttons on the band */
+  .action,
+  .volUp,
+  .volDown,
+  .side,
+  .camera {
+    position: absolute;
+    display: block;
+    width: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #3d3f44, #6b6e75 60%, #3d3f44);
+  }
+
+  .action { left: -3px; top: 150px; height: 34px; }
+  .volUp { left: -3px; top: 212px; height: 62px; }
+  .volDown { left: -3px; top: 288px; height: 62px; }
+  .side { right: -3px; top: 236px; height: 98px; }
+  .camera { right: -2px; top: 560px; height: 70px; width: 3px; opacity: 0.8; }
+
+  /* Status bar — Figma "Status Bar - iPhone": 9:41, cellular, Wi-Fi, battery */
+  .status {
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 59px;
+    padding: 4px 0 0;
+    pointer-events: none;
+  }
+
+  .time,
+  .levels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    width: 138px;
+  }
+
+  .time {
+    font: 600 17px/22px var(--font);
+    letter-spacing: -0.01em;
+  }
+
+  .island {
+    position: absolute;
+    z-index: 51;
+    top: 11px;
+    left: 50%;
+    display: block;
+    width: 125px;
+    height: 37px;
+    margin-left: -62.5px;
+    border-radius: 20px;
+    background: #000;
+    pointer-events: none;
+  }
+
+  .home {
+    position: absolute;
+    z-index: 50;
+    bottom: 8px;
+    left: 50%;
+    display: block;
+    width: 139px;
+    height: 5px;
+    margin-left: -69.5px;
+    border-radius: 3px;
+    background: #fff;
+    pointer-events: none;
+  }
+}

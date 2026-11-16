@@ -1,0 +1,92 @@
+.stage {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  width: calc(var(--size) * 3);
+  height: calc(var(--size) * 2.6);
+}
+
+.ball {
+  position: relative;
+  z-index: 1;
+  width: var(--size);
+  height: var(--size);
+  margin-bottom: calc(var(--size) * 0.18);
+  border-radius: 50%;
+  background: var(--lime);
+  transform-origin: 50% 100%;
+  animation: drop 1.25s var(--ease-out) both;
+}
+
+.ball[data-hop] {
+  animation: hop 0.7s both;
+}
+
+.shadow {
+  position: absolute;
+  bottom: calc(var(--size) * 0.08);
+  width: calc(var(--size) * 0.9);
+  height: calc(var(--size) * 0.16);
+  border-radius: 50%;
+  background: rgba(195, 238, 37, 0.2);
+  opacity: 0;                  /* only shows while the ball is bouncing */
+  animation: shadow-drop 1.25s var(--ease-out) both;
+}
+
+.shadow[data-hop] {
+  animation: shadow-hop 0.7s both;
+}
+
+/* Lime rings that spread from the first landing */
+.ripple {
+  position: absolute;
+  bottom: calc(var(--size) * 0.04);
+  width: calc(var(--size) * 1.2);
+  height: calc(var(--size) * 0.3);
+  border-radius: 50%;
+  border: 2px solid var(--lime);
+  opacity: 0;
+  animation: ripple 0.9s var(--ease-out) 0.38s both;
+}
+
+.ripple[data-late] {
+  animation-delay: 0.52s;
+}
+
+@keyframes drop {
+  0%   { transform: translateY(-260%) scale(1, 1);       animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
+  30%  { transform: translateY(0) scale(1.28, 0.72);     animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1); }
+  48%  { transform: translateY(-85%) scale(0.94, 1.06);  animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
+  64%  { transform: translateY(0) scale(1.14, 0.86);     animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1); }
+  76%  { transform: translateY(-28%) scale(0.98, 1.02);  animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
+  86%  { transform: translateY(0) scale(1.05, 0.95); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+
+@keyframes hop {
+  0%   { transform: scale(1.22, 0.78); animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1); }
+  45%  { transform: translateY(-110%) scale(0.92, 1.08); animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
+  80%  { transform: translateY(0) scale(1.12, 0.88); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+
+@keyframes shadow-drop {
+  0%   { transform: scale(0.3); opacity: 0; }
+  30%  { transform: scale(1.15); opacity: 1; }
+  48%  { transform: scale(0.6); opacity: 0.5; }
+  64%  { transform: scale(1.05); opacity: 1; }
+  76%  { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+@keyframes shadow-hop {
+  0%   { transform: scale(1.15); opacity: 0.6; }
+  45%  { transform: scale(0.55); opacity: 0.5; }
+  80%  { transform: scale(1.05); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+@keyframes ripple {
+  0%   { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.6); opacity: 0; }
+}

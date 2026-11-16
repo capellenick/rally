@@ -1,0 +1,280 @@
+.chat {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glass navigation bar: back · avatar + name › · spacer */
+.bar {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  padding: calc(var(--safe-top) + 2px) 14px 8px;
+  background: rgba(26, 26, 26, 0.55);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.barSpacer {
+  width: var(--tap);
+}
+
+.title {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  min-height: var(--tap);
+}
+
+.title:active {
+  opacity: 0.6;
+}
+
+.titleAvatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--avatar);
+  font: 600 15px/1 var(--font);
+}
+
+.titleName {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--label-2);
+  font: 500 13px/16px var(--font);
+}
+
+.titleName img {
+  width: 8px;
+  height: auto;
+  transform: rotate(-90deg);
+  opacity: 0.7;
+}
+
+.scroll {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: calc(var(--safe-top) + 92px) 14px 14px;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stamp {
+  margin: 14px 0 8px;
+  color: var(--label-3);
+  font: 500 12px/16px var(--font);
+  text-align: center;
+}
+
+/* Bubbles — Figma: 20pt radius, 15pt text. Sent bubbles use the
+   accessible blue (white text 4.7:1); Figma's #409CFF was 2.8:1. */
+.bubble {
+  max-width: 76%;
+  margin: 2px 0;
+  padding: 9px 14px;
+  border-radius: 20px;
+  font: 400 16px/21px var(--font);
+  overflow-wrap: anywhere;
+  animation: bubble-in 0.32s var(--spring) both;
+}
+
+.bubble[data-from='me'] {
+  align-self: flex-end;
+  background: var(--blue-fill);
+  transform-origin: 100% 100%;
+}
+
+.bubble[data-from='them'] {
+  align-self: flex-start;
+  background: var(--fill);
+  transform-origin: 0 100%;
+}
+
+/* The last bubble in a run gets the tucked corner where Figma drew its tail */
+.bubble[data-from='me'][data-tail] { border-bottom-right-radius: 6px; margin-bottom: 8px; }
+.bubble[data-from='them'][data-tail] { border-bottom-left-radius: 6px; margin-bottom: 8px; }
+
+@keyframes bubble-in {
+  from { transform: scale(0.85); opacity: 0; }
+}
+
+/* System event: the Figma Confirmed check + a quiet glass capsule */
+.system {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 92%;
+  margin: 6px 0 10px;
+  padding: 6px 14px 6px 6px;
+  border-radius: var(--r-pill);
+  color: var(--label-2);
+  font: 500 13px/17px var(--font);
+}
+
+.check {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.check img {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+.check img + img {
+  width: 12px;
+  height: auto;
+}
+
+.typing {
+  display: flex;
+  gap: 4px;
+  padding: 14px 16px;
+}
+
+.typing i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--label-3);
+  animation: blink 1.2s infinite both;
+}
+
+.typing i:nth-child(2) { animation-delay: 0.15s; }
+.typing i:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-2px); }
+}
+
+/* Quick replies — what the "+" opens */
+.tray {
+  display: flex;
+  gap: 8px;
+  padding: 0 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s var(--ease-out), opacity 0.2s, padding 0.3s var(--ease-out);
+}
+
+.tray[data-open] {
+  max-height: 60px;
+  padding-bottom: 10px;
+  opacity: 1;
+}
+
+.quick {
+  flex: none;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  color: var(--label-2);
+  font: var(--t-subhead);
+  white-space: nowrap;
+}
+
+.quick:active {
+  transform: scale(0.95);
+}
+
+/* Composer — Figma 320:2775: + circle, glass message pill, blue send */
+.composer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px calc(var(--safe-bottom) + 6px);
+}
+
+.plus {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: 50%;
+  transition: transform 0.3s var(--spring);
+}
+
+.plus[aria-expanded='true'] {
+  transform: rotate(45deg);
+}
+
+.plus img {
+  width: 18px;
+  height: auto;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: var(--tap);
+  padding: 0 4px 0 16px;
+  border-radius: var(--r-pill);
+  cursor: text;
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: none;
+  color: var(--label);
+  font: var(--t-body);
+  outline: none;
+}
+
+.field input::placeholder {
+  color: var(--label-3);
+}
+
+.send {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--blue-fill);
+  transition: transform 0.2s var(--spring), opacity 0.2s;
+}
+
+.send:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.send:not(:disabled):active {
+  transform: scale(0.88);
+}

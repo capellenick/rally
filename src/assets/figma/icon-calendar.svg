@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="21" height="19.5" viewBox="0 0 21 19.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 146">
+<g id="Group 143">
+<path id="Rectangle 30" d="M5 2.25001H16C18.3472 2.25001 20.25 4.1528 20.25 6.50001V14.5C20.25 16.8472 18.3472 18.75 16 18.75H5C2.65279 18.75 0.75 16.8472 0.75 14.5V6.50001C0.75 4.1528 2.65279 2.25001 5 2.25001Z" stroke-width="1.5" stroke="#656565"/>
+<path id="Line 29" d="M6.75004 0.75L6.75004 4.56818" stroke-width="1.5" stroke-linecap="round" stroke="#656565"/>
+<path id="Line 30" d="M14.25 0.75L14.25 4.56818" stroke-width="1.5" stroke-linecap="round" stroke="#656565"/>
+</g>
+<circle id="Ellipse 36" cx="6.00003" cy="9.00005" r="1.5" fill="#656565"/>
+<circle id="Ellipse 37" cx="10.5001" cy="9.00005" r="1.5" fill="#656565"/>
+<circle id="Ellipse 38" cx="15" cy="9.00005" r="1.5" fill="#656565"/>
+<circle id="Ellipse 39" cx="6.00003" cy="13.5" r="1.5" fill="#656565"/>
+<circle id="Ellipse 40" cx="10.5001" cy="13.5" r="1.5" fill="#656565"/>
+<circle id="Ellipse 41" cx="15" cy="13.5" r="1.5" fill="#656565"/>
+</g>
+</svg>

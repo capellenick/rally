@@ -1,0 +1,89 @@
+/* Floating glass bar: 364 × 75 in Figma, 18pt from each edge, resting on the home indicator */
+.bar {
+  position: absolute;
+  z-index: 20;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: max(var(--safe-bottom), 12px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 75px;
+  padding: 3px;
+  border-radius: 40px;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 50px;
+  color: var(--label-2);
+  transition: background-color 0.3s var(--ease-out);
+}
+
+/* Selected capsule: a brighter lens of glass inside the bar */
+.tab[aria-current='page'] {
+  background: var(--glass-sheen), var(--glass-pressed);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  color: var(--label);
+}
+
+.tab:active .icon {
+  transform: scale(0.88);
+}
+
+/* iOS-style count badge; red deepened from systemRed so white text clears 4.5:1 */
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -10px;
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--r-pill);
+  background: #d6281f;
+  box-shadow: 0 0 0 2px rgba(42, 42, 45, 0.9);
+  color: #fff;
+  font: 700 11px/1 var(--font);
+  animation: badge-in 0.4s var(--spring) both;
+}
+
+@keyframes badge-in {
+  from { transform: scale(0.4); opacity: 0; }
+}
+
+.icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 36px;
+  opacity: 0.7;
+  transition:
+    opacity 0.2s,
+    transform 0.25s var(--spring);
+}
+
+.tab[aria-current='page'] .icon {
+  opacity: 1;
+}
+
+/* The search glyph is drawn on its side in Figma and rotated −90° on the canvas */
+.icon[data-rotate] img {
+  transform: rotate(-90deg);
+}
+
+.icon img {
+  max-height: 30px;
+  width: auto;
+}
+
+.label {
+  font: 500 11px/13px var(--font);
+}

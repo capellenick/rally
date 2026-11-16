@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="37.2498" height="69.6156" viewBox="0 0 37.2498 69.6156" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 54">
+<path id="Vector 10" d="M20.2635 28.5L11.0711 28.5L5.57107 23" stroke-width="3" stroke-linecap="round" stroke="white"/>
+<path id="Vector 13" d="M27 29.5L34.5 22V10" stroke-width="3" stroke-linecap="round" stroke="white"/>
+<path id="Vector 14" d="M7 68L19.5 55.5L19.5 44.0001" stroke-width="3" stroke-linecap="round" stroke="white"/>
+<path id="Vector 15" d="M15 68.1156L26.5 56.6156L26.5 43" stroke-width="3" stroke-linecap="round" stroke="white"/>
+<circle id="Ellipse 21" cx="23.5" cy="22" r="3.5" fill="white"/>
+<circle id="Ellipse 22" cx="34" cy="2" r="2" fill="white"/>
+<path id="Vector 9" d="M17.9999 45.5L18 27L28 27L28 45.5L17.9999 45.5Z" fill="white"/>
+<path id="Line 20" d="M5 22.8995L5 15" stroke-width="2" stroke-linecap="round" stroke="white"/>
+<mask id="stroke0_0_55" fill="white">
+<path d="M10 10C10 13.3137 7.76142 16 5 16C2.23858 16 0 13.3137 0 10C0 6.68629 2.23858 4 5 4C7.76142 4 10 6.68629 10 10Z"/>
+</mask>
+<path id="Ellipse 23" d="M10 10C10 13.3137 7.76142 16 5 16C2.23858 16 0 13.3137 0 10C0 6.68629 2.23858 4 5 4C7.76142 4 10 6.68629 10 10Z" stroke-width="4" stroke="white" mask="url(#stroke0_0_55)"/>
+</g>
+</svg>

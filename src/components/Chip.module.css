@@ -1,0 +1,65 @@
+/* Off: a glass pill (apple.com/os/ios style). On: filled with its facet colour. */
+.chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 16px 0 10px;
+  border-radius: var(--r-pill);
+  color: var(--label-2);
+  font: var(--t-callout);
+  white-space: nowrap;
+  transition:
+    background-color 0.25s var(--ease-out),
+    color 0.25s var(--ease-out),
+    transform 0.2s var(--spring);
+}
+
+.chip:active {
+  transform: scale(0.94);
+}
+
+.glyph {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  transition: transform 0.35s var(--spring);
+}
+
+.glyph img {
+  width: 16px;
+  height: auto;
+  /* Figma's #656565 "+" is 1.7:1 on the pill; lift it to ~#A8A8A8 */
+  filter: brightness(1.66);
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--chip-fill);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  color: var(--label);
+}
+
+.chip[aria-pressed='true'] .glyph {
+  transform: rotate(135deg);
+}
+
+.chip[aria-pressed='true'] .glyph img {
+  filter: none;
+}
+
+.chip[data-facet='sport'] { --chip-fill: var(--facet-sport); }
+.chip[data-facet='day'] { --chip-fill: var(--facet-day); }
+.chip[data-facet='skill'] { --chip-fill: var(--facet-skill); }
+
+/* Orange can't carry white text (2.2:1) — use ink instead (7.8:1) */
+.chip[aria-pressed='true'][data-facet='skill'] {
+  color: var(--ink);
+}
+
+.chip[aria-pressed='true'][data-facet='skill'] .glyph img {
+  filter: brightness(0.12);
+}

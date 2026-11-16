@@ -1,0 +1,218 @@
+/* Underline tabs — Figma 230:1206–1209: 20pt Semibold, full-width hairline, 100pt indicator */
+.tabs {
+  position: relative;
+  display: flex;
+  gap: 32px;
+  margin-top: 10px;
+  padding: 0 calc(var(--gutter) + 6px);
+  box-shadow: inset 0 -1px 0 var(--separator);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding-bottom: 4px;
+  color: var(--label-3);
+  font: var(--t-title3);
+  transition: color 0.2s;
+}
+
+.tab[aria-selected='true'] {
+  color: var(--label);
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--r-pill);
+  background: var(--facet-skill);
+  color: var(--ink);
+  font: 700 12px/1 var(--font);
+}
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--label);
+  transition: transform 0.4s var(--spring), width 0.4s var(--spring);
+}
+
+.list {
+  display: grid;
+  gap: var(--stack);
+  margin: 18px var(--gutter) 0;
+}
+
+/* Activity card — Figma 230:1211: 103pt tall, 20pt radius */
+.card {
+  border-radius: var(--r-card);
+  background: var(--bg-elevated);
+  overflow: hidden;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 103px;
+  padding: 14px 14px 14px 12px;
+}
+
+.glyph {
+  display: grid;
+  place-items: center;
+}
+
+.body {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 6px;
+  color: var(--label);
+  font: var(--t-title3);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 3px;
+  color: var(--label-3);
+  font: var(--t-subhead);
+}
+
+.meta img {
+  flex: none;
+  width: 15px;
+  height: auto;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  align-self: stretch;
+}
+
+/* Details button — Figma 230:1448: #F19B19, 10pt radius. Ink text for contrast (7.8:1). */
+.details {
+  min-width: 78px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: var(--facet-skill);
+  color: var(--ink);
+  font: 600 13px/1 var(--font);
+  position: relative;
+  transition: transform 0.2s var(--spring);
+}
+
+.details::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+}
+
+.details:active {
+  transform: scale(0.94);
+}
+
+.tagPlayed,
+.tagMissed {
+  font: 600 13px/18px var(--font);
+}
+
+.tagPlayed {
+  color: var(--green);
+}
+
+.tagMissed {
+  color: var(--label-3);
+}
+
+.disclosure {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s var(--ease-out);
+}
+
+.disclosure[data-open] {
+  grid-template-rows: 1fr;
+}
+
+.disclosure > div {
+  overflow: hidden;
+  padding: 0 14px;
+}
+
+.disclosure[data-open] > div {
+  padding-bottom: 14px;
+  box-shadow: inset 0 1px 0 var(--separator);
+  padding-top: 12px;
+}
+
+.kicker {
+  margin: 2px 0 12px 24px;
+  color: var(--label-2);
+  font: var(--t-footnote);
+}
+
+.kicker span {
+  color: var(--facet-skill);
+  font-weight: 600;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.primary,
+.yes,
+.secondary {
+  height: var(--tap);
+  border-radius: var(--r-pill);
+  font: var(--t-headline);
+  font-size: 15px;
+  transition: transform 0.2s var(--spring);
+}
+
+.primary { background: var(--blue-fill); }
+.yes { background: var(--green-fill); }
+.secondary { color: var(--label-2); }
+
+.primary:active,
+.yes:active,
+.secondary:active {
+  transform: scale(0.96);
+}
+
+.confirm {
+  padding: 12px 14px 14px;
+  box-shadow: inset 0 1px 0 var(--separator);
+}
+
+.confirm p {
+  margin: 0 0 10px;
+  font: var(--t-headline);
+}
+
+.empty {
+  margin: 30px 12px;
+  color: var(--label-3);
+  font: var(--t-subhead);
+  text-align: center;
+}

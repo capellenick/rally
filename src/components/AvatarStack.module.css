@@ -1,0 +1,22 @@
+.stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--avatar);
+  box-shadow: 0 0 0 2px var(--bg-elevated);
+  color: var(--label);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.extra {
+  margin-left: 6px;
+  color: var(--label-2);
+  font: var(--t-body);
+}

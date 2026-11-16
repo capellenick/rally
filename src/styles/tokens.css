@@ -1,0 +1,92 @@
+/*
+ * Rally design tokens.
+ *
+ * Colour values are lifted directly from the Figma "Onboarding" file
+ * (key 5zvoEd6peSXvS7jA2Ubxc3): the file has no published variables, so each
+ * value below names the layer it was sampled from. Type sizes follow Apple's
+ * iOS text styles; where Figma already matched one (20 Semibold card titles,
+ * 15 Regular metadata) it is noted.
+ */
+:root {
+  /* Surfaces */
+  --bg: #1a1a1a;               /* every frame background */
+  --bg-elevated: #2a2a2a;      /* event card, 1:313 */
+  --fill: #424242;             /* chips, sort pill, filter button */
+  --fill-strong: #656565;      /* Share / Details buttons, 358:3252 */
+  --material-highlight: rgba(127, 127, 127, 0.2); /* selected tab capsule, 358:3281 */
+  --separator: rgba(84, 84, 88, 0.6);
+  --rule: #8e8e93;             /* facet divider — iOS systemGray, 5.3:1 on canvas */
+
+  /*
+   * Glass — controls and navigation float on frosted glass; content (cards)
+   * stays opaque. Values follow apple.com/os/ios: 10% white fill, a hairline
+   * rim of rgba(217,207,207,.25), and dark floating materials of
+   * rgba(42,42,45,.72) over a blur.
+   */
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-pressed: rgba(255, 255, 255, 0.18);
+  --glass-dark: rgba(42, 42, 45, 0.55);
+  --glass-rim: rgba(217, 207, 207, 0.25);
+  --glass-blur: blur(24px) saturate(190%);
+  --glass-edge:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 0 1px var(--glass-rim);
+  --glass-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 55%);
+  --glass-lift: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  /* Labels */
+  --label: #ffffff;            /* Labels/Primary variable */
+  --label-2: #d9d9d9;          /* tab labels, chip text, "+5" */
+  --label-3: #a8a8a8;          /* dates, venues, "Open Events" */
+  --label-4: #656565;
+
+  /*
+   * Accent. Figma's fills failed WCAG AA (4.5:1) under white text, so each
+   * hue has a deepened "-fill" for anything carrying text; the original stays
+   * for icons, rings and coloured text on dark. Ratios: white on fill.
+   */
+  --lime: #c3ee25;             /* the ball in the wordmark, 1:5 */
+  --green: #32a45e;            /* Join + Confirmed, 1:325 — 3.18:1, icons only */
+  --green-fill: #1e8449;       /* 4.72:1 */
+  --blue: #409cff;             /* sent bubble, 320:2781 — 2.83:1, icons only */
+  --blue-fill: #0071e3;        /* Apple's own action blue, 4.70:1 */
+
+  /* Selected chip colours (Components frame, 133:552) — one hue per facet */
+  --facet-sport: #2f6fd6;      /* Figma #3577E1 deepened: 4.31 → 4.81:1 */
+  --facet-skill: #f19b19;      /* white fails (2.22:1) — carries ink text, 7.83:1 */
+  --facet-day: #7246ab;        /* 6.60:1 as drawn */
+  --ink: #1a1a1a;
+
+  /* Avatars (Group 39/40) */
+  --avatar: #a8a8a8;
+
+  /* Shape */
+  --r-card: 20px;              /* event card corner */
+  --r-pill: 999px;
+  --tap: 44px;                 /* HIG minimum hit target */
+
+  /* Spacing: Figma cards sit 18pt from the screen edge, 9pt apart */
+  --gutter: 18px;
+  --stack: 9px;
+
+  /* iOS text styles (size / line-height / weight) */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+  --t-large-title: 700 34px/41px var(--font);
+  --t-title2: 700 22px/28px var(--font);
+  --t-title3: 600 20px/25px var(--font);   /* = Figma card title */
+  --t-headline: 600 17px/22px var(--font);
+  --t-body: 400 17px/22px var(--font);
+  --t-callout: 500 16px/21px var(--font);
+  --t-subhead: 400 15px/20px var(--font);  /* = Figma metadata */
+  --t-footnote: 400 13px/18px var(--font);
+  --t-caption: 500 11px/13px var(--font);
+
+  /* Motion — iOS-style springs approximated with cubic-beziers */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Safe areas — overridden by the desktop device frame */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
