@@ -20,6 +20,18 @@ npm run dev                            # http://localhost:5173
   same size as the Figma frames. On a phone it runs full-bleed and respects the
   real safe areas. Add it to the Home Screen to run it standalone.
 
+## Put it online
+
+The live site is GitHub Pages at **https://capellenick.github.io/rally/**,
+served from the `gh-pages` branch. After any change:
+
+```bash
+./deploy.sh
+```
+
+It builds with the `/rally/` base path and force-pushes the built site to
+`gh-pages`. Commit your source changes to `main` separately.
+
 ## What's built
 
 | Screen | Register | Notes |
